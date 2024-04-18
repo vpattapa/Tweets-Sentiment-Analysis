@@ -1,4 +1,3 @@
-/* Base reset and full-height layout with central alignment */
 html, body {
     height: 100%;  
     margin: 0;     
@@ -7,10 +6,9 @@ html, body {
     flex-direction: column; 
     justify-content: center; 
     align-items: center;
-    font-family: 'Arial', sans-serif; /* Ensuring consistent font usage */
+    font-family: 'Arial', sans-serif; 
 }
 
-/* Background settings for body */
 body {
     background-image: url('../images/Sentiment\ Analyzer.jpeg'); 
     background-position: center;  
