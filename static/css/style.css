@@ -1,0 +1,122 @@
+/* Base reset and full-height layout with central alignment */
+html, body {
+    height: 100%;  
+    margin: 0;     
+    padding: 0;  
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center;
+    font-family: 'Arial', sans-serif; /* Ensuring consistent font usage */
+}
+
+/* Background settings for body */
+body {
+    background-image: url('../images/Sentiment\ Analyzer.jpeg'); 
+    background-position: center;  
+    background-repeat: no-repeat; 
+    background-size: cover;
+}
+
+/* Styling for the navigation links at the top-right corner */
+nav.links-section {
+    position: absolute; 
+    top: 0; 
+    right: 0; 
+    margin: 20px; 
+    font-weight: bold;
+    color: black;
+}
+
+nav.links-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav.links-section li {
+    display: inline; 
+    margin-left: 20px; 
+}
+
+/* Styling for hyperlinks in the links section */
+nav.links-section a {
+    color: black; 
+    text-decoration: none; 
+}
+
+nav.links-section a:hover {
+    text-decoration: underline; 
+}
+
+/* Styles for the login container */
+.login-container {
+    background: white; /* White background for the login area */
+    padding: 20px;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow */
+    width: 300px; /* Fixed width */
+}
+
+/* Styles specific to the login form */
+#loginForm {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+}
+
+#loginForm h2 {
+    text-align: center; /* Center the title */
+    color: #333; /* Dark grey color for text */
+}
+
+/* Styles for labels and inputs */
+#loginForm label {
+    margin-bottom: 5px; /* Space below each label */
+    color: #666; /* Medium grey color for text */
+}
+
+#loginForm input[type="text"],
+#loginForm input[type="password"] {
+    padding: 10px;
+    margin-bottom: 10px; /* Space below each input */
+    border: 1px solid #ccc; /* Light grey border */
+    border-radius: 4px; /* Rounded borders for inputs */
+    width: calc(100% - 22px); /* Full width taking padding and border into account */
+}
+
+/* Style for the login button */
+#loginForm button {
+    background-color: #136395; /* Twitter's blue */
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+#loginForm button:hover {
+    background-color: #0d95e8; /* A slightly darker blue on hover */
+}
+
+/* Styles for the account option section */
+.account-option {
+    text-align: center; /* Center the text */
+    margin-top: 10px; /* Space above the text */
+}
+
+.account-option a {
+    color: #1da1f2; /* Twitter's blue for links */
+    text-decoration: none; /* No underline */
+}
+
+.account-option a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+#loadingSpinner {
+    display: none; /* Hidden by default */
+    color: #fff;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 5px;
+}
+
