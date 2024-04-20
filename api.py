@@ -27,7 +27,7 @@ webdrivers = {}
 def create_webdriver():
     
     options = Options()
-    options.add_argument('--headless')
+    #options.add_argument('--headless')
     options.add_argument('--disable-gpu')
     options.add_argument('window-size=1920x1080')
     options.add_argument('--no-sandbox')
@@ -62,9 +62,23 @@ def login_twitter(username, password):
     driver.quit()
     return -1  
 
-@app.route('/plot_graphs', methods=['POST'])
-def plot_graphs():
-    return 
+@app.route('/data/<hashtag>')
+def get_data(hashtag):
+    try:
+        engine = create_engine('postgresql://postgres:writeuser@localhost:5433/postgres')
+        query = text("""
+        SELECT "TweetID", "Hashtag", "Tweet", "ProcessedTweet", "PositiveScore", "NegativeScore", "NeutralScore", "CompoundScore", "Sentiment"
+        FROM "Tweets" WHERE "Hashtag" = :hashtag;
+        """)
+        df = pd.read_sql(query, engine, params={"hashtag": hashtag})
+        return jsonify(df.to_dict(orient='records'))
+    except Exception as e:
+        print(e)
+        return jsonify({"error": str(e)}), 500
+
+@app.route('/visualization/<hashtag>')
+def visualization(hashtag):
+    return render_template('visualization.html', hashtag=hashtag)
 
 def insert_data(data):
 
@@ -180,15 +194,13 @@ def enter_hashtag():
 
 @app.route('/process_hashtag', methods=['POST'])
 def process_hashtag():
-    """ Process the submitted hashtag and provide feedback """
     hashtag = request.form['hashtag']
     driver = get_webdriver()
     scraped_tweets = scrape_tweets(driver, hashtag)
     analyze_tweets(scraped_tweets, hashtag)
-    plot_graphs(hashtag)
+    driver.quit()
+    return redirect(url_for('visualization', hashtag=hashtag))
     
-
-
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -1,0 +1,43 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: #f4f4f4;
+  }
+  
+  h1, h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .visuals-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  
+  #bar-chart, #pie-chart {
+    width: 50%; /* This will assign half of the total width to each chart */
+    max-width: 600px; /* Ensures that each chart does not exceed a maximum width */
+  }
+  
+  /* Ensure the charts are responsive */
+  #bar-chart svg, #pie-chart svg {
+    max-height: 400px; /* This will cap the height of the charts */
+    width: 100%; /* This makes sure that the SVG fills its container */
+    height: auto; /* Maintain the aspect ratio */
+  }
+  
+  /* Responsive design for smaller screens */
+  @media (max-width: 768px) {
+    #bar-chart, #pie-chart {
+      width: 100%; /* Each chart takes full width on smaller screens */
+    }
+  
+    h1, h2 {
+      font-size: smaller; /* Reduce font size on smaller screens */
+    }
+  }
+  

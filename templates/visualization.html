@@ -1,0 +1,19 @@
+<!-- templates/visualization.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Visualizations</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+  </head>
+  <body>
+    <h1>Hashtag Sentiment Analysis Visualization</h1>
+    <h2>Analysis for hashtag: {{ hashtag }}</h2>
+    <div id="bar-chart"></div>
+    <div id="pie-chart"></div>
+    <script type="text/javascript">
+      var hashtag = "{{ hashtag }}";
+    </script>
+    <script src="../static/js/visualization.js"></script>
+  </body>
+</html>
